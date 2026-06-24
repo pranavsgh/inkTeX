@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+dist/
+.vite/
+npm-debug.log*
+
+# Env
+.env
+.env.local
+
+# Model weights / artifacts
+*.pt
+*.pth
+*.onnx
+weights/*
+!weights/.gitkeep
+
+# Datasets
+data/*
+!data/.gitkeep
+
+# PDFs generated at repo root (compiled output, not source)
+/*.pdf
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Jupyter
+.ipynb_checkpoints/
