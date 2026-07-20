@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-// Canvas overlay drawing detected text/math region bounding boxes over the uploaded image. (Mutha)
+// Canvas overlay drawing detected text/math region bounding boxes over the uploaded image. (Pranav)
 export default function BoundingBoxOverlay({ imageUrl, blocks }) {
   const canvasRef = useRef(null);
 

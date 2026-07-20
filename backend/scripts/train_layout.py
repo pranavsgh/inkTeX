@@ -1,4 +1,4 @@
-"""Trains a YOLOv8 layout detector on the prepared text/math zone dataset. (Mutha)"""
+"""Trains a YOLOv8 layout detector on the prepared text/math zone dataset. (Pranav)"""
 
 from ultralytics import YOLO
 

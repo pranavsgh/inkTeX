@@ -1,4 +1,4 @@
-"""Loads the YOLOv8 layout model and runs page segmentation into text/math regions. (Mutha)"""
+"""Loads the YOLOv8 layout model and runs page segmentation into text/math regions. (Pranav)"""
 
 from PIL import Image
 from ultralytics import YOLO

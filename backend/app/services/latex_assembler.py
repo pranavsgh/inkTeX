@@ -1,4 +1,4 @@
-"""Takes ordered text/math blocks and wraps them into a complete .tex document string. (Shared)"""
+"""Takes ordered text/math blocks and wraps them into a complete .tex document string. (Pranav)"""
 
 import re
 

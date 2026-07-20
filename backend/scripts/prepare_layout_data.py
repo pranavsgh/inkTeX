@@ -1,5 +1,5 @@
 """Converts IAMonDo InkML documents into rasterized page images + YOLO bbox labels
-for training the text/math layout detector. (Mutha)
+for training the text/math layout detector. (Pranav)
 
 Dataset: IAMonDo-database (Indermuehle et al., 2010) — online handwritten documents
 with `Textblock` and `Formula` content zones (among others we don't use), stored as

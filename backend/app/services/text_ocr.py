@@ -1,4 +1,4 @@
-"""Loads TrOCR (or Tesseract as a fallback) and runs text recognition on handwritten text blocks. (Mutha)"""
+"""Loads TrOCR (or Tesseract as a fallback) and runs text recognition on handwritten text blocks. (Pranav)"""
 
 import torch
 from PIL import Image

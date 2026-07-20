@@ -1,6 +1,6 @@
 import { useDropzone } from "react-dropzone";
 
-// Drag-and-drop + click-to-upload component for selecting a page image. (Mutha)
+// Drag-and-drop + click-to-upload component for selecting a page image. (Pranav)
 export default function UploadZone({ onFileSelected }) {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     accept: { "image/*": [] },

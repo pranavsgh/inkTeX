@@ -1,4 +1,4 @@
-"""POST /convert — master endpoint: analyze page, route each block, assemble .tex, compile PDF. (Shared)"""
+"""POST /convert — master endpoint: analyze page, route each block, assemble .tex, compile PDF. (Pranav)"""
 
 import io
 import os

@@ -1,4 +1,4 @@
-"""POST /analyze — accepts a full handwritten page image, returns ordered text/math blocks. (Mutha)"""
+"""POST /analyze — accepts a full handwritten page image, returns ordered text/math blocks. (Pranav)"""
 
 import io
 

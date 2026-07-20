@@ -1,4 +1,4 @@
-"""Evaluation metrics for LaTeX generation: BLEU score, exact-match accuracy, CER/WER. (Shared)"""
+"""Evaluation metrics for LaTeX generation: BLEU score, exact-match accuracy, CER/WER. (Pranav)"""
 
 import math
 from collections import Counter

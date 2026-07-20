@@ -1,4 +1,4 @@
-// Shows the ordered list of detected blocks with their type labels (text/math). (Mutha)
+// Shows the ordered list of detected blocks with their type labels (text/math). (Pranav)
 export default function BlockList({ blocks }) {
   if (!blocks || blocks.length === 0) {
     return <p className="text-sm text-gray-400">No blocks detected.</p>;

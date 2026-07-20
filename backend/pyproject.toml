@@ -6,7 +6,6 @@ requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [
     { name = "Pranav" },
-    { name = "Mutha" },
 ]
 dependencies = [
     "fastapi>=0.110",
