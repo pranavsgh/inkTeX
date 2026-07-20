@@ -2,8 +2,9 @@
 
 import os
 
-from PIL import Image, ImageOps
+from PIL import Image
 
+from ml.image_utils import letterbox
 from ml.tokenizer import LatexTokenizer
 
 # Expected raw layout (standard im2latex-100k distribution):
@@ -38,16 +39,6 @@ def _load_split_pairs(raw_data_dir: str, split: str) -> list[tuple[str, int]]:
     return pairs
 
 
-def _letterbox(image: Image.Image, size: tuple[int, int]) -> Image.Image:
-    """Resize preserving aspect ratio, then pad with white to exactly `size`."""
-    image = image.convert("L")
-    image = ImageOps.contain(image, size)
-    canvas = Image.new("L", size, color=255)
-    offset = ((size[0] - image.width) // 2, (size[1] - image.height) // 2)
-    canvas.paste(image, offset)
-    return canvas
-
-
 def preprocess(raw_data_dir: str, output_dir: str, image_size: tuple[int, int] = (256, 256)) -> None:
     """Resize images, tokenize formulas, build the vocabulary, and write out train/val/test splits."""
     formulas = _load_formulas(raw_data_dir)
@@ -69,7 +60,7 @@ def preprocess(raw_data_dir: str, output_dir: str, image_size: tuple[int, int] =
         with open(labels_path, "w", encoding="utf-8") as labels_file:
             for image_name, formula_idx in pairs:
                 with Image.open(os.path.join(raw_images_dir, image_name)) as image:
-                    resized = _letterbox(image, image_size)
+                    resized = letterbox(image, image_size)
                     resized.save(os.path.join(split_images_dir, image_name))
                 labels_file.write(f"{image_name}\t{formulas[formula_idx]}\n")
 

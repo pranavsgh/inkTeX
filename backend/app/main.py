@@ -5,6 +5,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from app.config import settings
 from app.routers import analyze, convert, math
@@ -61,3 +62,6 @@ app.add_middleware(
 app.include_router(math.router)
 app.include_router(analyze.router)
 app.include_router(convert.router)
+
+os.makedirs("static/results", exist_ok=True)
+app.mount("/static", StaticFiles(directory="static"), name="static")

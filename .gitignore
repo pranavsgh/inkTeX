@@ -36,6 +36,7 @@ backend/data/*
 
 # PDFs generated at repo root (compiled output, not source)
 /*.pdf
+backend/static/results/
 
 # OS / editor
 .DS_Store
