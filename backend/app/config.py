@@ -19,6 +19,7 @@ class Settings(BaseSettings):
     allowed_origins: str = "http://localhost:5173"
 
     math_model_weights_path: str = "weights/math_model.pt"
+    math_vocab_path: str = "weights/math_vocab.json"
     layout_model_weights_path: str = "weights/yolov8_layout.pt"
     text_ocr_model_name: str = "microsoft/trocr-base-handwritten"
 

@@ -19,6 +19,8 @@ dependencies = [
     "sentence-transformers>=2.7",
     "python-multipart>=0.0.9",
     "Pillow>=10.3",
+    "numpy>=1.26",
+    "wandb>=0.16",
     "pydantic>=2.7",
     "pydantic-settings>=2.2",
 ]
