@@ -5,13 +5,21 @@ const client = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:8000",
 });
 
+// Posts `file` under the `file` field as multipart/form-data. Content-Type (with the
+// multipart boundary) is left for axios/the browser to set automatically.
+function postFile(path, file) {
+  const formData = new FormData();
+  formData.append("file", file);
+  return client.post(path, formData);
+}
+
 /**
  * Upload a full handwritten page image for layout analysis.
  * @param {File} file
  * @returns {Promise<import("axios").AxiosResponse>}
  */
 export function uploadPage(file) {
-  throw new Error("Not implemented");
+  return postFile("/analyze", file);
 }
 
 /**
@@ -20,7 +28,7 @@ export function uploadPage(file) {
  * @returns {Promise<import("axios").AxiosResponse>}
  */
 export function getMath(file) {
-  throw new Error("Not implemented");
+  return postFile("/math", file);
 }
 
 /**
@@ -29,7 +37,7 @@ export function getMath(file) {
  * @returns {Promise<import("axios").AxiosResponse>}
  */
 export function convert(file) {
-  throw new Error("Not implemented");
+  return postFile("/convert", file);
 }
 
 export default client;

@@ -2,7 +2,6 @@
 name = "inktex-backend"
 version = "0.1.0"
 description = "Backend services and ML pipeline for inkTeX — handwriting to compiled LaTeX"
-readme = "../README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [
@@ -14,7 +13,7 @@ dependencies = [
     "uvicorn[standard]>=0.29",
     "torch>=2.2",
     "torchvision>=0.17",
-    "transformers>=4.40",
+    "transformers>=4.40,<5",
     "ultralytics>=8.2",
     "sentence-transformers>=2.7",
     "python-multipart>=0.0.9",

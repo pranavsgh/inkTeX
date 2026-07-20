@@ -26,10 +26,13 @@ npm-debug.log*
 *.onnx
 weights/*
 !weights/.gitkeep
+runs/
 
 # Datasets
 data/*
 !data/.gitkeep
+backend/data/*
+!backend/data/.gitkeep
 
 # PDFs generated at repo root (compiled output, not source)
 /*.pdf
