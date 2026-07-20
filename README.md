@@ -47,12 +47,11 @@ See [docs/API_CONTRACT.md](docs/API_CONTRACT.md) and
 [docs/BLOCK_FORMAT.md](docs/BLOCK_FORMAT.md) for the API and data contracts
 shared between backend and frontend.
 
-## Team
+## Author
 
-- **Pranav** — math recognition pipeline (encoder/decoder model, training,
-  math endpoint, PDF compilation)
-- **Mutha** — layout detection and OCR pipeline (YOLOv8 segmentation, TrOCR,
-  upload/result UI)
+- **Pranav** — full pipeline: dataset preprocessing, math recognition
+  (encoder/decoder model, training, math endpoint, PDF compilation), layout
+  detection and OCR (YOLOv8 segmentation, TrOCR), and the upload/result UI
 
 ## License
 

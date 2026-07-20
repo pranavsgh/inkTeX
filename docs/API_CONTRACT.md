@@ -25,7 +25,7 @@ Recognizes the LaTeX for a single cropped math block image. (Pranav)
 
 ## POST /analyze
 
-Runs layout detection on a full handwritten page and returns ordered blocks. (Mutha)
+Runs layout detection on a full handwritten page and returns ordered blocks. (Pranav)
 
 **Request** — `multipart/form-data`
 
@@ -61,7 +61,7 @@ Runs layout detection on a full handwritten page and returns ordered blocks. (Mu
 ## POST /convert
 
 Master endpoint: analyze the page, route each block to the math or text model,
-assemble the results into a `.tex` document, and compile it to a PDF. (Shared)
+assemble the results into a `.tex` document, and compile it to a PDF. (Pranav)
 
 **Request** — `multipart/form-data`
 

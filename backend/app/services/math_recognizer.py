@@ -4,6 +4,7 @@ import torch
 from PIL import Image
 from torchvision import transforms
 
+from ml.image_utils import letterbox
 from ml.model import Im2LatexModel
 from ml.tokenizer import LatexTokenizer
 
@@ -13,9 +14,17 @@ _to_tensor = transforms.ToTensor()
 class MathRecognizer:
     """Wraps the encoder-decoder model defined in ml/model.py for serving."""
 
-    def __init__(self, weights_path: str, vocab_path: str, device: str = "cpu", embed_dim: int = 512) -> None:
+    def __init__(
+        self,
+        weights_path: str,
+        vocab_path: str,
+        device: str = "cpu",
+        embed_dim: int = 512,
+        image_size: tuple[int, int] = (256, 256),
+    ) -> None:
         """Load model weights onto the given device."""
         self.device = torch.device(device)
+        self.image_size = image_size
         self.tokenizer = LatexTokenizer(vocab_path=vocab_path)
 
         self.model = Im2LatexModel(vocab_size=self.tokenizer.vocab_size, embed_dim=embed_dim)
@@ -25,7 +34,10 @@ class MathRecognizer:
 
     def predict(self, image: Image.Image) -> tuple[str, float]:
         """Run inference on a cropped math block image, returning (latex_string, confidence)."""
-        image_tensor = _to_tensor(image.convert("L")).unsqueeze(0).to(self.device)  # (1, 1, H, W)
+        # Must match training preprocessing exactly (scripts/preprocess_data.py) — the
+        # model was only ever shown images at this fixed size.
+        resized = letterbox(image, self.image_size)
+        image_tensor = _to_tensor(resized).unsqueeze(0).to(self.device)  # (1, 1, H, W)
 
         with torch.no_grad():
             token_ids = self.model.generate(image_tensor).squeeze(0)

@@ -7,8 +7,10 @@ import torch.nn as nn
 class CNNEncoder(nn.Module):
     """Convolutional backbone that maps an input image to a sequence of feature vectors."""
 
-    def __init__(self, embed_dim: int = 512, max_seq_len: int = 512) -> None:
+    def __init__(self, embed_dim: int = 512, max_seq_len: int = 1024) -> None:
         """Initialize convolutional layers and the projection to embed_dim."""
+        # max_seq_len must cover (image_size / 8)**2 (three MaxPool2d(2) layers below) —
+        # 1024 matches preprocess_data.py's default 256x256 training image size.
         super().__init__()
         self.conv_stack = nn.Sequential(
             nn.Conv2d(1, 64, 3, padding=1), nn.ReLU(), nn.MaxPool2d(2),
